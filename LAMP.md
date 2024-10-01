@@ -115,6 +115,12 @@ phpinfo();
 docker-compose up -d
 ```
 
+ou
+
+```
+docker compose up -d
+```
+
 ## 6. Utilisation du conteneur
 
 - Accédez à votre application PHP : [http://localhost](http://localhost)
