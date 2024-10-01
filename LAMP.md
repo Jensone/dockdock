@@ -162,20 +162,20 @@ Vous avez maintenant un environnement LAMP fonctionnel avec Docker. Vous pouvez 
 
 2. **Taguez votre image**
    ```
-   docker tag image_locale:tag nomutilisateur/nom_repo:tag
+   docker tag image_locale nomutilisateur/nom_repo
    ```
    Exemple :
    ```
-   docker tag mon_app:v1 johndoe/mon_app:v1
+   docker tag mon_app johndoe/mon_app
    ```
 
 3. **Poussez l'image vers le registre**
    ```
-   docker push nomutilisateur/nom_repo:tag
+   docker push nomutilisateur/nom_repo
    ```
    Exemple :
    ```
-   docker push johndoe/mon_app:v1
+   docker push johndoe/mon_app
    ```
 
 4. **Vérifiez que l'image a été poussée avec succès**
