@@ -142,3 +142,68 @@ docker-compose down
 ## Récap
 
 Vous avez maintenant un environnement LAMP fonctionnel avec Docker. Vous pouvez commencer à développer votre application PHP en modifiant les fichiers dans le dossier `www/`. N'oubliez pas de redémarrer les conteneurs si vous apportez des modifications au `Dockerfile` ou au `docker-compose.yml`.
+
+---
+
+# Procédure de push d'un conteneur Docker
+
+## Prérequis
+- Docker installé sur votre machine
+- Un compte sur un registre Docker (par exemple, Docker Hub)
+- Votre image Docker déjà créée
+
+## Étapes
+
+1. **Connectez-vous à votre registre Docker**
+   ```
+   docker login
+   ```
+   Entrez votre nom d'utilisateur et votre mot de passe lorsque vous y êtes invité.
+
+2. **Taguez votre image**
+   ```
+   docker tag image_locale:tag nomutilisateur/nom_repo:tag
+   ```
+   Exemple :
+   ```
+   docker tag mon_app:v1 johndoe/mon_app:v1
+   ```
+
+3. **Poussez l'image vers le registre**
+   ```
+   docker push nomutilisateur/nom_repo:tag
+   ```
+   Exemple :
+   ```
+   docker push johndoe/mon_app:v1
+   ```
+
+4. **Vérifiez que l'image a été poussée avec succès**
+   Allez sur votre compte Docker Hub (ou autre registre) et vérifiez que l'image apparaît dans votre liste de dépôts.
+
+## Notes importantes
+
+- Assurez-vous que le nom de votre image respecte la convention : `nomutilisateur/nom_repo:tag`
+- Si vous utilisez un registre privé, vous devrez peut-être spécifier l'URL complète du registre dans la commande de tag et de push.
+- Pour les registres privés, la commande de connexion peut être différente. Consultez la documentation de votre registre pour plus de détails.
+
+## Exemple complet
+
+```bash
+# Connectez-vous à Docker Hub
+docker login
+
+# Taguez l'image locale
+docker tag mon_app:v1 johndoe/mon_app:v1
+
+# Poussez l'image
+docker push johndoe/mon_app:v1
+
+```
+
+## Dépannage en pépins
+
+- Si vous rencontrez des erreurs d'authentification, assurez-vous que vous êtes bien connecté et que vous avez les permissions nécessaires pour pousser vers le dépôt.
+- Si le push est lent, vérifiez votre connexion internet et la taille de votre image.
+- En cas d'erreur "denied: requested access to the resource is denied", vérifiez que vous avez les droits nécessaires sur le dépôt et que le nom de l'image est correct.
+
